@@ -1,0 +1,36 @@
+<div class="container-bg">
+  <div class="container main-body">
+    <app-logo></app-logo>
+    <div class="container mt-7 pb-2" *ngIf="modalita === null">
+      <h1 class="text-center">Scegli la modalità di gioco</h1>
+      <div class="row mt-4">
+        <app-button class="w-100" (click)="setModalita(ModalitaEnum.UmanoVsComputer)">Umano vs Computer</app-button>
+      </div>
+      <div class="row mt-2">
+        <app-button class="w-100" (click)="setModalita(ModalitaEnum.ComputerVsComputer)">Computer vs Computer</app-button>
+      </div>
+    </div>
+
+    <div class="container mt-7 pb-2" *ngIf="modalita !== null && round === null">
+      <h1 class="text-center">Scegli il punteggio massimo</h1>
+      <div class="row mt-6">
+        <div class="col-md">
+          <app-button class="w-100" (click)="setRound(1)">1</app-button>
+        </div>
+        <div class="col-md">
+          <app-button class="w-100" (click)="setRound(3)">3</app-button>
+        </div>
+        <div class="col-md">
+          <app-button class="w-100" (click)="setRound(5)">5</app-button>
+        </div>
+        <div class="col-md">
+          <app-button class="w-100" (click)="setRound(7)">7</app-button>
+        </div>
+        <div class="col-md">
+          <app-button class="w-100" (click)="setRound(10)">10</app-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
