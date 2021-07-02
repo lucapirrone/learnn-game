@@ -38,3 +38,10 @@ html, body
   margin: 0 auto;
   padding-top: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+
+  .main-body {
+    width: 100%;
+  }
+}
