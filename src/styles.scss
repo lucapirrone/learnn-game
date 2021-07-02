@@ -1,0 +1,256 @@
+/* LearnnGame Style
+
+Table of Contents
+
+00.Variables
+01.Base
+02.Game
+03.Button
+04.Logo
+04.Switch
+*/
+
+/* 00.Variables */
+
+$primary-color: #6096BA;
+$text-color: #E1E8EB;
+$background-color: #343A40;
+
+
+/* 01.Base */
+
+html, body
+{
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-family: 'Dosis', cursive;
+}
+
+* {
+  font-family: 'Dosis', cursive;
+  color: $text-color;
+}
+
+.mt-6 {
+  margin-top: 4rem;
+}
+
+.mt-7 {
+  margin-top: 5rem;
+}
+
+.mt-8 {
+  margin-top: 6.5rem;
+}
+
+.action-text {
+  font-size: 22px;
+}
+
+.container-bg {
+  height: 100%;
+  width: 100%;
+  background-color: $background-color;
+}
+
+.main-body {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-body {
+    width: 100%;
+  }
+}
+
+
+/* 02.Game */
+
+.game-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.immagine-mano {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.row {
+  text-align: center;
+}
+
+.row .punteggio {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.vs {
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* 03.Button */
+
+.custom-button {
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  background-color: $primary-color;
+  border-radius: 8px;
+  color: $text-color;
+  font-size: 22px;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-button:hover {
+  background-color: rgba($primary-color, 0.1);
+}
+
+.loading {
+  background-color: rgba($primary-color, 0.3);
+  cursor: not-allowed;
+}
+
+.loading:hover {
+  background-color: #817F86!important;
+  cursor: not-allowed;
+}
+
+/* 04.Logo */
+
+.logo {
+  width: 250px;
+  margin: 0 auto;
+  color: $primary-color;
+}
+
+.text {
+  font-family: 'Dancing Script';
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 50px;
+}
+
+#sasso, #forbice {
+  text-align: left;
+}
+#carta {
+  text-align: right;
+}
+
+/* 05.Switch */
+
+.switch {
+  --line: #E8EBFB;
+  --dot: #275EFE;
+  --circle: #D3D4EC;
+  --background: #fff;
+  --duration: .3s;
+  --text: #9EA0BE;
+  --shadow: 0 1px 3px #{rgba(#00093D, .08)};
+  cursor: pointer;
+  position: relative;
+  &:before {
+    content: '';
+    width: 60px;
+    height: 32px;
+    border-radius: 16px;
+    background: var(--background);
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: var(--shadow);
+  }
+  input {
+    display: none;
+    & + div {
+      position: relative;
+      &:before,
+      &:after {
+        --s: 1;
+        content: '';
+        position: absolute;
+        height: 4px;
+        top: 14px;
+        width: 24px;
+        background: var(--line);
+        transform: scaleX(var(--s));
+        transition: transform var(--duration) ease;
+      }
+      &:before {
+        --s: 0;
+        left: 4px;
+        transform-origin: 0 50%;
+        border-radius: 2px 0 0 2px;
+      }
+      &:after {
+        left: 32px;
+        transform-origin: 100% 50%;
+        border-radius: 0 2px 2px 0;
+      }
+      span {
+        padding-left: 60px;
+        line-height: 28px;
+        color: var(--text);
+        &:before {
+          --x: 0;
+          --b: var(--circle);
+          --s: 4px;
+          content: '';
+          position: absolute;
+          left: 4px;
+          top: 4px;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          box-shadow: inset 0 0 0 var(--s) var(--b);
+          transform: translateX(var(--x));
+          transition: box-shadow var(--duration) ease, transform var(--duration) ease;
+        }
+        &:not(:empty) {
+          padding-left: 68px;
+        }
+      }
+    }
+    &:checked {
+      & + div {
+        &:before {
+          --s: 1;
+        }
+        &:after {
+          --s: 0;
+        }
+        span {
+          &:before {
+            --x: 28px;
+            --s: 12px;
+            --b: var(--dot);
+          }
+        }
+      }
+    }
+  }
+}
+
