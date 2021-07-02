@@ -11,7 +11,7 @@ Table of Contents
 
 /* 00.Variables */
 
-$primary-color: #7952B3;
+$primary-color: #6096BA;
 $text-color: #E1E8EB;
 $background-color: #343A40;
 
@@ -138,7 +138,7 @@ html, body
 .logo {
   width: 250px;
   margin: 0 auto;
-  color: #7952B3;
+  color: $primary-color;
 }
 
 .text {

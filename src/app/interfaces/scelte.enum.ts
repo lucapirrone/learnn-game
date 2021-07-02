@@ -1,4 +1,3 @@
-
 export interface Scelta {
   soggetto: string,
   image: string,
