@@ -1,0 +1,157 @@
+/* LearnnGame Style
+
+Table of Contents
+
+00.Variables and Imports
+01.Base
+02.Game
+03.Button
+04.Logo
+*/
+
+/* 00.Variables */
+
+$primary-color: #7952B3;
+$text-color: #E1E8EB;
+$background-color: #343A40;
+
+
+/* 01.Base */
+
+html, body
+{
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-family: 'Dosis', cursive;
+}
+
+* {
+  font-family: 'Dosis', cursive;
+  color: $text-color;
+}
+
+.mt-6 {
+  margin-top: 4rem;
+}
+
+.mt-7 {
+  margin-top: 5rem;
+}
+
+.mt-8 {
+  margin-top: 6.5rem;
+}
+
+.container-bg {
+  height: 100%;
+  width: 100%;
+  background-color: $background-color;
+}
+
+.main-body {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-body {
+    width: 100%;
+  }
+}
+
+
+/* 02.Game */
+
+.game-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.immagine-mano {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.row {
+  text-align: center;
+}
+
+.row .punteggio {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.vs {
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* 03.Button */
+
+.custom-button {
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  background-color: $primary-color;
+  border-radius: 8px;
+  color: $text-color;
+  font-size: 22px;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-button:hover {
+  background-color: rgba($primary-color, 0.1);
+}
+
+.loading {
+  background-color: rgba($primary-color, 0.3);
+  cursor: not-allowed;
+}
+
+.loading:hover {
+  background-color: #817F86!important;
+  cursor: not-allowed;
+}
+
+/* 03.Logo */
+
+.logo {
+  width: 250px;
+  margin: 0 auto;
+  color: #7952B3;
+}
+
+.text {
+  font-family: 'Dancing Script';
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 50px;
+}
+
+#sasso, #forbice {
+  text-align: left;
+}
+#carta {
+  text-align: right;
+}
+
