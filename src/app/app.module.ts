@@ -8,6 +8,7 @@ import { GameComponent } from './game/game.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LogoComponent } from './components/logo/logo.component';
 import { ButtonComponent } from './components/button/button.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { ButtonComponent } from './components/button/button.component';
     LogoComponent,
     ButtonComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

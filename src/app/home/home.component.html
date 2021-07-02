@@ -3,7 +3,20 @@
     <app-logo></app-logo>
     <div class="container mt-7 pb-2" *ngIf="modalita === null">
       <h1 class="text-center">Scegli la modalità di gioco</h1>
-      <div class="row mt-4">
+      <div class="row mt-6">
+        <div class="col text-left action-text">
+          Fast Game
+        </div>
+        <div class="col-auto">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="fastGame">
+            <div>
+              <span></span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="row mt-2">
         <app-button class="w-100" (click)="setModalita(ModalitaEnum.UmanoVsComputer)">Umano vs Computer</app-button>
       </div>
       <div class="row mt-2">

@@ -13,6 +13,7 @@ export class GameComponent implements OnInit {
   ModalitaEnum = Modalita;
   scelte = scelte;
   round: number = 5;
+  fastGame: boolean = false;
   loading = false;
 
   gameOver: boolean = false;
@@ -30,6 +31,7 @@ export class GameComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.modalita = params.modalita ? params.modalita : null;
       this.round = params.round ? params.round : null;
+      this.fastGame = params.fastGame === "true";
     });
 
     if (this.modalita === null || this.round === null) {
@@ -58,7 +60,10 @@ export class GameComponent implements OnInit {
     if (scelta) {
       this.sceltaSx = scelta;
       this.title = "In attesa della scelta dell'avversario..."
-      await new Promise(async (resolve, reject) => {
+      if (this.fastGame) {
+        this.sceltaDx = this.generaSceltaRandom();
+      } else {
+        await new Promise(async (resolve, reject) => {
           let stop = false;
 
           setTimeout(() => {
@@ -77,49 +82,55 @@ export class GameComponent implements OnInit {
             });
           }
         })
+      }
     } else {
       this.title = "Scelta in corso..."
 
-      await Promise.all([
-        new Promise(async (resolve, reject) => {
-          let stop = false;
+      if (this.fastGame) {
+        this.sceltaSx = this.generaSceltaRandom();
+        this.sceltaDx = this.generaSceltaRandom();
+      } else {
+        await Promise.all([
+          new Promise(async (resolve, reject) => {
+            let stop = false;
 
-          setTimeout(() => {
-            stop = true;
             setTimeout(() => {
-              resolve(true);
-            }, 200)
-          }, 2000)
-
-          while (!stop) {
-            await new Promise((resolve, reject) => {
+              stop = true;
               setTimeout(() => {
-                this.sceltaSx = this.generaSceltaRandom();
                 resolve(true);
-              }, 100)
-            });
-          }
-        }),
-        new Promise(async (resolve, reject) => {
-          let stop = false;
+              }, 200)
+            }, 2000)
 
-          setTimeout(() => {
-            stop = true;
+            while (!stop) {
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  this.sceltaSx = this.generaSceltaRandom();
+                  resolve(true);
+                }, 100)
+              });
+            }
+          }),
+          new Promise(async (resolve, reject) => {
+            let stop = false;
+
             setTimeout(() => {
-              resolve(true);
-            }, 500)
-          }, 2000)
-
-          while (!stop) {
-            await new Promise((resolve, reject) => {
+              stop = true;
               setTimeout(() => {
-                this.sceltaDx = this.generaSceltaRandom();
                 resolve(true);
-              }, 100)
-            });
-          }
-        })
-      ])
+              }, 500)
+            }, 2000)
+
+            while (!stop) {
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  this.sceltaDx = this.generaSceltaRandom();
+                  resolve(true);
+                }, 100)
+              });
+            }
+          })
+        ])
+      }
 
     }
     let vincitore = this.controlloVincitore(this.sceltaSx, this.sceltaDx);

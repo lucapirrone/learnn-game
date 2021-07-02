@@ -8,6 +8,7 @@ L'architettura della app permette una semplice estensione delle regole del gioco
 (rimuovendo o modificando) altre "Scelte".
 Il file "src/app/interfaces/scelte.enum.ts" contiene la configurazione di tutte le scelte disponibili che
 vengono visualizzate nel gioco.
+Non cè alcun bisogno di modificare l'algoritmo che determina il vincitore tra le due scelte.
 
 Con questo progetto ho voluto dimostrare il più possibile le mie competenze di sviluppo in ambito web.
 Infatti oltre ad aver sviluppato il gioco sottoforma di webapp ho anche creato una infrastruttura serverless
