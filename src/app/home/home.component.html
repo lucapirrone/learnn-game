@@ -14,19 +14,13 @@
     <div class="container mt-7 pb-2" *ngIf="modalita !== null && round === null">
       <h1 class="text-center">Scegli il punteggio massimo</h1>
       <div class="row mt-6">
-        <div class="col-md">
-          <app-button class="w-100" (click)="setRound(1)">1</app-button>
-        </div>
-        <div class="col-md">
+        <div class="col">
           <app-button class="w-100" (click)="setRound(3)">3</app-button>
         </div>
-        <div class="col-md">
+        <div class="col">
           <app-button class="w-100" (click)="setRound(5)">5</app-button>
         </div>
-        <div class="col-md">
-          <app-button class="w-100" (click)="setRound(7)">7</app-button>
-        </div>
-        <div class="col-md">
+        <div class="col">
           <app-button class="w-100" (click)="setRound(10)">10</app-button>
         </div>
       </div>

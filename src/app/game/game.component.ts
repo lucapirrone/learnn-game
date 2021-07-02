@@ -89,7 +89,7 @@ export class GameComponent implements OnInit {
             stop = true;
             setTimeout(() => {
               resolve(true);
-            }, 500)
+            }, 200)
           }, 2000)
 
           while (!stop) {
