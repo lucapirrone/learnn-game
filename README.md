@@ -5,8 +5,8 @@ E' sviluppato con il framework Angular 12 e con la libreria css Bootstrap 4.5.
 La grafica è semplice, minimale e funzionale. Gli stili sono descritti in SCSS.
 
 E' possibile clonare la repository per avviarla in locale, altrimenti è possibile visualizzarla ai seguenti indirizzi:
-d3vwqmkf4acjlh.cloudfront.net (ambiente di sviluppo)
-d2r4y4rij433g8.cloudfront.net (ambiente di produzione)
+https://d3vwqmkf4acjlh.cloudfront.net (ambiente di sviluppo)
+https://d2r4y4rij433g8.cloudfront.net/ (ambiente di produzione)
 
 L'architettura della app permette una semplice estensione delle regole del gioco aggiungendo 
 (rimuovendo o modificando) altre "Scelte".
