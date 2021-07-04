@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Modalita} from "../home/home.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Scelta, scelte} from "../interfaces/scelte.enum";
+import {GameService} from "./game.service";
 
 @Component({
   selector: 'app-game',
@@ -27,7 +28,7 @@ export class GameComponent implements OnInit {
 
   title: string = "";
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private gameService: GameService) {
     this.route.queryParams.subscribe(params => {
       this.modalita = params.modalita ? params.modalita : null;
       this.round = params.round ? params.round : null;
@@ -154,6 +155,14 @@ export class GameComponent implements OnInit {
       else title = title + "\nVince "+this.usernameDx+"!"
       this.title = title;
       this.gameOver = true;
+
+      await this.gameService.addGame({
+        player1Name: this.usernameSx,
+        player2Name: this.usernameDx,
+        player1Score: this.punteggioSx,
+        player2Score: this.punteggioDx,
+      })
+
     }
 
     this.loading = false;
