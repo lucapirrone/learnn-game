@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build Application
-        run: npm run build
+        run: npm run build:prod
       - uses: jakejarvis/s3-sync-action@master
         name: Upload App to S3 Bucket
         with:
