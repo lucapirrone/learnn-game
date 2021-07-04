@@ -5,9 +5,10 @@ Table of Contents
 00.Variables
 01.Base
 02.Game
-03.Button
-04.Logo
-04.Switch
+03.Game List
+04.Button
+05.Logo
+06.Switch
 */
 
 /* 00.Variables */
@@ -106,7 +107,57 @@ html, body
   font-weight: bold;
 }
 
-/* 03.Button */
+.game-over {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+/* 03.Game List */
+
+.list {
+  width: 100%;
+  margin-top: 50px;
+}
+.list-item {
+  width: 100%;
+  padding: 5px;
+  margin-top: 20px;
+  display: table;
+}
+.left-player {
+  width: 40%;
+  display: table-cell;
+  text-align: right;
+  font-size: 30px;
+  padding-right: 30px;
+}
+.right-player {
+  width: 40%;
+  display: table-cell;
+  text-align: left;
+  font-size: 30px;
+  padding-left: 30px;
+}
+.score {
+  width: 20%;
+  padding: 5px;
+  display: table-cell;
+  text-align: center;
+  font-size: 30px;
+  background-color: $primary-color;
+  border-radius: 10px;
+  min-width: 70px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .left-player, .right-player, .score {
+    font-size: 20px;
+  }
+}
+
+
+/* 04.Button */
 
 .custom-button {
   width: 300px;
@@ -138,7 +189,7 @@ html, body
   cursor: not-allowed;
 }
 
-/* 04.Logo */
+/* 05.Logo */
 
 .logo {
   width: 200px;
@@ -160,7 +211,7 @@ html, body
   text-align: right;
 }
 
-/* 05.Switch */
+/* 06.Switch */
 
 .switch {
   --line: #E8EBFB;

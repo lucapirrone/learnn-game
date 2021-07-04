@@ -12,11 +12,11 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  public async addGame(createGameDTO: CreateGameDTO): Promise<ResponseBodyVO> {
-    return await this.http.post<ResponseBodyVO>(`${apiUrl}/games`, createGameDTO).toPromise();
+  public async addGame(createGameDTO: CreateGameDTO): Promise<ResponseBodyVO<CreateGameDTO>> {
+    return await this.http.post<ResponseBodyVO<CreateGameDTO>>(`${apiUrl}/games`, createGameDTO).toPromise();
   }
 
-  public async getGames(): Promise<ResponseBodyVO> {
-    return await this.http.get<ResponseBodyVO>(`${apiUrl}/games`).toPromise();
+  public async getGames(): Promise<ResponseBodyVO<CreateGameDTO[]>> {
+    return await this.http.get<ResponseBodyVO<CreateGameDTO[]>>(`${apiUrl}/games`).toPromise();
   }
 }

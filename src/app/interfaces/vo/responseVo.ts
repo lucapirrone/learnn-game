@@ -1,7 +1,7 @@
-export class ResponseBodyVO {
+export class ResponseBodyVO<DataType> {
   code: number;
   message: string;
-  data?: object;
+  data: DataType;
 }
 
 export class ResponseVO {

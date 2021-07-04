@@ -11,6 +11,7 @@ import {ButtonComponent} from './components/button/button.component';
 import {FormsModule} from "@angular/forms";
 import {GameService} from "./game/game.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { GameListComponent } from './game-list/game-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HomeComponent,
     GameComponent,
     LogoComponent,
-    ButtonComponent
+    ButtonComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
