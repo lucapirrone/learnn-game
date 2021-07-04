@@ -149,11 +149,9 @@ export class GameComponent implements OnInit {
 
 
     if (this.punteggioSx == this.round || this.punteggioDx == this.round) {
-      let title = "Game Over!";
-      if (this.punteggioSx === this.punteggioDx) title = title + "\nPareggio!"
-      if (this.punteggioSx > this.punteggioDx) title = title + "\nVince "+this.usernameSx+"!"
-      else title = title + "\nVince "+this.usernameDx+"!"
-      this.title = title;
+      if (this.punteggioSx === this.punteggioDx) this.title = "Pareggio!"
+      if (this.punteggioSx > this.punteggioDx) this.title = "Vince "+this.usernameSx+"!"
+      else this.title = "Vince "+this.usernameDx+"!"
       this.gameOver = true;
 
       await this.gameService.addGame({
@@ -162,7 +160,6 @@ export class GameComponent implements OnInit {
         player1Score: this.punteggioSx,
         player2Score: this.punteggioDx,
       })
-
     }
 
     this.loading = false;
@@ -202,5 +199,9 @@ export class GameComponent implements OnInit {
 
   tornaAlMenu() {
     this.router.navigate(['']);
+  }
+
+  visualizzaPartite() {
+    this.router.navigate(['game-list']);
   }
 }
