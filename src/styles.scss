@@ -9,6 +9,7 @@ Table of Contents
 04.Button
 05.Logo
 06.Switch
+06.Input
 */
 
 /* 00.Variables */
@@ -20,8 +21,7 @@ $background-color: #343A40;
 
 /* 01.Base */
 
-html, body
-{
+html, body {
   margin: 0;
   overflow: hidden;
   height: 100%;
@@ -94,16 +94,21 @@ html, body
   text-align: center;
 }
 
+.side {
+
+}
+
 .row .punteggio {
   text-align: center;
   margin-top: 10px;
   font-size: 30px;
   font-weight: bold;
+  vertical-align: middle;
 }
 
 .vs {
   text-align: center;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
 }
 
@@ -118,12 +123,14 @@ html, body
   width: 100%;
   margin-top: 50px;
 }
+
 .list-item {
   width: 100%;
   padding: 5px;
   margin-top: 20px;
   display: table;
 }
+
 .left-player {
   width: 40%;
   display: table-cell;
@@ -131,6 +138,7 @@ html, body
   font-size: 30px;
   padding-right: 30px;
 }
+
 .right-player {
   width: 40%;
   display: table-cell;
@@ -138,6 +146,7 @@ html, body
   font-size: 30px;
   padding-left: 30px;
 }
+
 .score {
   width: 20%;
   padding: 5px;
@@ -185,7 +194,7 @@ html, body
 }
 
 .loading:hover {
-  background-color: #817F86!important;
+  background-color: #817F86 !important;
   cursor: not-allowed;
 }
 
@@ -207,6 +216,7 @@ html, body
 #learnn {
   text-align: left;
 }
+
 #game {
   text-align: right;
 }
@@ -223,6 +233,7 @@ html, body
   --shadow: 0 1px 3px #{rgba(#00093D, .08)};
   cursor: pointer;
   position: relative;
+
   &:before {
     content: '';
     width: 60px;
@@ -234,10 +245,13 @@ html, body
     top: 0;
     box-shadow: var(--shadow);
   }
+
   input {
     display: none;
+
     & + div {
       position: relative;
+
       &:before,
       &:after {
         --s: 1;
@@ -250,21 +264,25 @@ html, body
         transform: scaleX(var(--s));
         transition: transform var(--duration) ease;
       }
+
       &:before {
         --s: 0;
         left: 4px;
         transform-origin: 0 50%;
         border-radius: 2px 0 0 2px;
       }
+
       &:after {
         left: 32px;
         transform-origin: 100% 50%;
         border-radius: 0 2px 2px 0;
       }
+
       span {
         padding-left: 60px;
         line-height: 28px;
         color: var(--text);
+
         &:before {
           --x: 0;
           --b: var(--circle);
@@ -280,19 +298,23 @@ html, body
           transform: translateX(var(--x));
           transition: box-shadow var(--duration) ease, transform var(--duration) ease;
         }
+
         &:not(:empty) {
           padding-left: 68px;
         }
       }
     }
+
     &:checked {
       & + div {
         &:before {
           --s: 1;
         }
+
         &:after {
           --s: 0;
         }
+
         span {
           &:before {
             --x: 28px;
@@ -305,3 +327,21 @@ html, body
   }
 }
 
+/* 06.Input */
+
+.input {
+  width: 100%;
+  background-color: #2d3138;
+  height: 40px;
+
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  border: 1px solid #1f2226;
+  border-radius: 6px;
+  box-shadow: #21262d;
+  line-height: 20px;
+  outline: none;
+  padding: 5px 12px;
+  vertical-align: middle;
+  text-align: center;
+}
