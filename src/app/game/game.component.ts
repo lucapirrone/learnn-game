@@ -29,9 +29,11 @@ export class GameComponent implements OnInit {
   title: string = "";
 
   constructor(private router: Router, private route: ActivatedRoute, private gameService: GameService) {
+    let username;
     this.route.queryParams.subscribe(params => {
       this.modalita = params.modalita ? params.modalita : null;
       this.round = params.round ? params.round : null;
+      username = params.username ? params.username : null;
       this.fastGame = params.fastGame === "true";
     });
 
@@ -44,7 +46,7 @@ export class GameComponent implements OnInit {
     }
     if (this.modalita == Modalita.UmanoVsComputer) {
       this.title = "Fai la tua scelta";
-      this.usernameSx = "Umano"
+      this.usernameSx = username ? username : "Umano"
       this.usernameDx = "CPU"
     }
   }
