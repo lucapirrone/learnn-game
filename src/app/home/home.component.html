@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="container mt-7 pb-2" *ngIf="modalita !== null && round === null && (modalita == ModalitaEnum.UmanoVsComputer && username !== null)">
+    <div class="container mt-7 pb-2" *ngIf="modalita !== null && round === null && ((modalita == ModalitaEnum.UmanoVsComputer && username !== null) || modalita == ModalitaEnum.ComputerVsComputer)">
       <h1 class="text-center">Scegli il punteggio massimo</h1>
       <div class="row mt-6">
         <div class="col">
