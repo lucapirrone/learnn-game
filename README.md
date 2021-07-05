@@ -27,7 +27,7 @@ La grafica è semplice, minimale e funzionale. Gli stili sono descritti in SCSS.
 
 L'architettura della app permette una semplice estensione delle regole del gioco aggiungendo 
 (rimuovendo o modificando) altre "Scelte".  
-Il file "src/app/interfaces/scelte.enum.ts" contiene la configurazione di tutte le scelte disponibili che
+Il file "src/app/interfaces/weapons.enum.ts" contiene la configurazione di tutte le scelte disponibili che
 vengono visualizzate nel gioco.  
 Non cè alcun bisogno di modificare l'algoritmo che determina il vincitore tra le due scelte.
 

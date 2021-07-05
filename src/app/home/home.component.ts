@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {GameModeEnum} from "../interfaces/weapons.enum";
 
-export enum Modalita {
-  UmanoVsComputer,
-  ComputerVsComputer
-}
+
 
 @Component({
   selector: 'app-home',
@@ -12,15 +10,16 @@ export enum Modalita {
 })
 export class HomeComponent implements OnInit {
 
-  ModalitaEnum = Modalita;
-  modalita: Modalita | null = null;
-  fastGame: boolean = false;
-  username: string;
-  round: number | null = null;
+  gameMode: GameModeEnum | null = null;
+  round: number | null = null;  // Chosen round number
+  fastGame: boolean = false;  // Chosen fastGame
+  username: string;   // Chosen username for HumanVsComputer GameMode
+  GameModeEnum = GameModeEnum;  // GameModeEnum reachable for html template
 
   constructor(private router: Router, private route: ActivatedRoute) {
+    // Get user choice from query params
     this.route.queryParams.subscribe(params => {
-      this.modalita = params.modalita ? params.modalita : null;
+      this.gameMode = params.gameMode ? params.gameMode : null;
       this.round = params.round ? params.round : null;
       this.username = params.username ? params.username : null;
       this.fastGame = params.fastGame === "true";
@@ -29,24 +28,26 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setModalita(modalita: Modalita) {
-    this.modalita = modalita;
-    this.router.navigate([], {queryParams: {round: this.round, fastGame: this.fastGame, modalita: this.modalita, username: this.username}});
+  setGameMode(gameMode: GameModeEnum) {
+    // Set gameMode
+    this.gameMode = gameMode;
+    this.router.navigate([], {queryParams: {round: this.round, fastGame: this.fastGame, gameMode: this.gameMode, username: this.username}});
   }
   setUsername(username: string) {
+    // Set username
     if (username.length > 8) {
       alert("L'username non deve superare 8 caratteri");
       return;
     }
     this.username = username;
-    this.router.navigate([], {queryParams: {round: this.round, fastGame: this.fastGame, modalita: this.modalita, username: this.username}});
+    this.router.navigate([], {queryParams: {round: this.round, fastGame: this.fastGame, gameMode: this.gameMode, username: this.username}});
   }
   setRound(round: number) {
+    // Set round number
     this.round = round;
-    //this.router.navigate([], {queryParams: {modalita: this.modalita, round}});
 
-    if (this.modalita && this.round) {
-      this.router.navigate(['game'], {queryParams: {round: this.round, fastGame: this.fastGame, modalita: this.modalita, username: this.username}});
+    if (this.gameMode && this.round) {
+      this.router.navigate(['game'], {queryParams: {round: this.round, fastGame: this.fastGame, gameMode: this.gameMode, username: this.username}});
     }
   }
 

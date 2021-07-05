@@ -8,15 +8,16 @@ import {Router} from "@angular/router";
   templateUrl: './game-list.component.html'
 })
 export class GameListComponent implements OnInit {
-  games: CreateGameDTO[];
+  games: CreateGameDTO[];   // games array
 
   constructor(private gameService: GameService, private router: Router) { }
 
   async ngOnInit() {
+    // Get game list from BackEnd API
     this.games = (await this.gameService.getGames()).data;
   }
 
-  tornaAlMenu() {
+  backToMenu() {
     this.router.navigate(['']);
   }
 }

@@ -5,6 +5,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   templateUrl: './button.component.html'
 })
 export class ButtonComponent implements OnInit {
+  // Loading state
   @Input() loading: boolean = false;
 
   constructor() { }

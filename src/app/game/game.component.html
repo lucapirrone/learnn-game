@@ -8,10 +8,10 @@
           <div class="side float-left">
             <h1 class="text-nowrap">{{usernameSx}}</h1>
             <div class="row">
-              <img [src]="'assets/icons/'+sceltaSx.image" alt="" class="immagine-mano">
+              <img [src]="'assets/icons/'+weaponSx.image" alt="" class="immagine-mano">
             </div>
             <div class="punteggio">
-              {{punteggioSx}}
+              {{scoreSx}}
             </div>
           </div>
         </div>
@@ -24,15 +24,14 @@
           <div class="side float-right">
             <h1 class="text-nowrap">{{usernameDx}}</h1>
             <div class="row">
-              <img [src]="'assets/icons/'+sceltaDx.image" alt="" class="immagine-mano">
+              <img [src]="'assets/icons/'+weaponDx.image" alt="" class="immagine-mano">
             </div>
             <div class="punteggio">
-              {{punteggioDx}}
+              {{scoreDx}}
             </div>
           </div>
         </div>
       </div>
-
 
       <div class="mt-3 mb-4 text-center" *ngIf="gameOver">
         <h1 class="game-over">Game Over!</h1>
@@ -42,27 +41,27 @@
         <h1>{{title}}</h1>
       </div>
 
-      <div *ngIf="modalita == ModalitaEnum.UmanoVsComputer && !gameOver">
+      <div *ngIf="gameMode == GameModeEnum.HumanVsComputer && !gameOver">
         <div class="row mt-4">
-          <div class="col-sm mt-4" *ngFor="let scelta of scelte">
-            <app-button class="w-100" [loading]="loading" (click)="handlePlay(scelta)">{{scelta.soggetto}}</app-button>
+          <div class="col-sm mt-4" *ngFor="let weapon of ArrayWeapons">
+            <app-button class="w-100" [loading]="loading" (click)="handlePlay(weapon)">{{weapon.weapon}}</app-button>
           </div>
         </div>
       </div>
 
-      <ng-container *ngIf="modalita == ModalitaEnum.ComputerVsComputer && !gameOver">
+      <ng-container *ngIf="gameMode == GameModeEnum.ComputerVsComputer && !gameOver">
         <app-button class="w-100" [loading]="loading" (click)="handlePlay()">GIOCA</app-button>
       </ng-container>
 
       <div *ngIf="gameOver">
         <div>
-          <app-button class="w-100" (click)="resetGioco()">GIOCA ANCORA</app-button>
+          <app-button class="w-100" (click)="resetGame()">GIOCA ANCORA</app-button>
         </div>
         <div class="mt-3">
-          <app-button class="w-100" (click)="visualizzaPartite()">VISUALIZZA PARTITE</app-button>
+          <app-button class="w-100" (click)="viewGameList()">VISUALIZZA PARTITE</app-button>
         </div>
         <div class="mt-3">
-          <app-button class="w-100" (click)="tornaAlMenu()">TORNA AL MENU PRINCIPALE</app-button>
+          <app-button class="w-100" (click)="backToMenu()">TORNA AL MENU PRINCIPALE</app-button>
         </div>
       </div>
 
