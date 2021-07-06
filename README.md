@@ -6,8 +6,8 @@ Questo è il progetto della webapp che rappresenta il gioco "Carta-Sasso-Forbice
 per la candidatura a Learnn.  
 Il progetto è composto da 3 repository:
 - FrontEnd: https://github.com/lucapirrone/learnn-game;
-- Infrastruttura Hosting FrontEnd: https://github.com/lucapirrone/learnn-game-infr-fe
-- BackEnd: https://github.com/lucapirrone/learnn-game-be
+- Infrastruttura Hosting FrontEnd: https://github.com/lucapirrone/learnn-game-infr-fe;  
+- BackEnd: https://github.com/lucapirrone/learnn-game-be;  
 
 Le repository sono tutte pubbliche per cui è possibile clonarle per avviarle in locale. Per completezza della
 dimostrazione l'intero progetto è stato deployato su AWS ed è disponibile ai seguenti indirizzi:  
@@ -18,7 +18,7 @@ Con questo progetto ho cercato di dimostrare le mie competenze in ambito di svil
 - Sviluppo FrontEnd (Angular);
 - Sviluppo BackEnd;
 - Infrastruttura AWS e servizi Serverless;
-- Utilizzo delle pratiche di CI/CD
+- Utilizzo delle pratiche di CI/CD;
 
 ## FrontEnd
 
@@ -26,14 +26,14 @@ Il FrontEnd è sviluppato con il framework Angular 12 e con la libreria css Boot
 La grafica è semplice, minimale e funzionale. Gli stili sono descritti in SCSS.
 
 L'architettura della app permette una semplice estensione delle regole del gioco aggiungendo 
-(rimuovendo o modificando) altre "Scelte".  
+(rimuovendo o modificando) altre "Armi".  
 Il file "src/app/interfaces/weapons.enum.ts" contiene la configurazione di tutte le scelte disponibili che
 vengono visualizzate nel gioco.  
 Non cè alcun bisogno di modificare l'algoritmo che determina il vincitore tra le due scelte.
 
 ## Infrastruttura FrontEnd
 
-L'nfrastruttura su cui è hostata la webapp è basata sui servizi serverless del provider AWS.  
+L'infrastruttura su cui è hostata la webapp è basata sui servizi serverless del provider AWS.  
 Nello specifico è composta dai servizi AWS S3 (Storage e Hosting) + AWS CloudFront (CDN e HTTPS).  
 L'infrastruttura è descritta sottoforma di IaaC (Infrastructure as a Code) ed è visionabile sulla repository
 GitHub pubblica all'indirizzo https://github.com/lucapirrone/learnn-game-infr-fe.  
