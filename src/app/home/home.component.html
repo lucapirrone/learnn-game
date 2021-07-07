@@ -1,7 +1,7 @@
 <div class="container-bg overflow-auto">
   <div class="container main-body">
     <app-logo></app-logo>
-    <div class="container mt-7 pb-2" *ngIf="modalita === null">
+    <div class="container mt-7 pb-2" *ngIf="gameMode === null">
       <h1 class="text-center">Scegli la modalità di gioco</h1>
       <div class="row mt-6">
         <div class="col text-left action-text">
@@ -17,14 +17,14 @@
         </div>
       </div>
       <div class="row mt-2">
-        <app-button class="w-100" (click)="setModalita(ModalitaEnum.UmanoVsComputer)">Umano vs Computer</app-button>
+        <app-button class="w-100" (click)="setGameMode(GameModeEnum.HumanVsComputer)">Umano vs Computer</app-button>
       </div>
       <div class="row mt-2">
-        <app-button class="w-100" (click)="setModalita(ModalitaEnum.ComputerVsComputer)">Computer vs Computer</app-button>
+        <app-button class="w-100" (click)="setGameMode(GameModeEnum.ComputerVsComputer)">Computer vs Computer</app-button>
       </div>
     </div>
 
-    <div class="container mt-7 pb-2" *ngIf="modalita == ModalitaEnum.UmanoVsComputer && username === null">
+    <div class="container mt-7 pb-2" *ngIf="gameMode == GameModeEnum.HumanVsComputer && username === null">
       <h1 class="text-center">Inserisci il tuo nome</h1>
       <div class="row mt-4">
         <input type="text" class="input" #username/>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="container mt-7 pb-2" *ngIf="modalita !== null && round === null && ((modalita == ModalitaEnum.UmanoVsComputer && username !== null) || modalita == ModalitaEnum.ComputerVsComputer)">
+    <div class="container mt-7 pb-2" *ngIf="gameMode !== null && round === null && ((gameMode == GameModeEnum.HumanVsComputer && username !== null) || gameMode == GameModeEnum.ComputerVsComputer)">
       <h1 class="text-center">Scegli il punteggio massimo</h1>
       <div class="row mt-6">
         <div class="col">
