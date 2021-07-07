@@ -73,7 +73,7 @@ export class GameComponent implements OnInit {
       this.title = "In attesa della scelta dell'avversario..."
       if (this.fastGame) {
         // Generate random CPU weapon
-        this.weaponSx = this.generateRandonWeapon();
+        this.weaponDx = this.generateRandonWeapon();
       } else {
         await new Promise(async (resolve, reject) => {
           let stop = false;
